@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.CheckBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.fitnessfusionsystem.SurveyController">
+    <children>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <content>
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+                    <children>
+                        <Label text="How long have you been working out?" />
+                        <ComboBox fx:id="workoutExperienceComboBox">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:id="lessThan6Months" />
+                                    <String fx:id="sixMonthsToOneYear" />
+                                    <String fx:id="oneToThreeYears" />
+                                    <String fx:id="moreThanThreeYears" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+
+                        <Label text="Are you in a caloric surplus, a caloric deficit, or eating at maintenance calories?" />
+                        <ComboBox fx:id="caloricStatusComboBox">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:id="caloricSurplus" />
+                                    <String fx:id="caloricDeficit" />
+                                    <String fx:id="maintenanceCalories" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+
+                        <Label text="Do you suffer from any long-term injuries?" />
+                        <CheckBox fx:id="injuriesCheckBox" />
+
+                        <VBox alignment="CENTER" fx:id="injuriesAreasBox" spacing="10.0">
+                            <Label text="If yes, then what areas of the body are you affected?" />
+                            <CheckBox text="Head/Neck" />
+                            <CheckBox text="Shoulders" />
+                            <CheckBox text="Back" />
+                            <CheckBox text="Arms" />
+                            <CheckBox text="Hands/Wrists" />
+                            <CheckBox text="Hips" />
+                            <CheckBox text="Legs" />
+                            <CheckBox text="Feet/Ankles" />
+                        </VBox>
+
+                        <Button fx:id="confirmButton" text="Confirm Answers" onAction="#confirmButtonClicked" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="50.0" />
+                    </VBox.margin>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
+
+
+

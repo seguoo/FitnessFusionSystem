@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.example.fitnessfusionsystem.ExplanationController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+            <children>
+                <Label text="Welcome to our Exercise Assistant!">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <Label
+                    text="To create a personalized workout plan tailored to your needs, we need some information about your fitness experience, body type, and goals. Please click the button below to start the survey."
+                    wrapText="true">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="startSurveyButton" text="Start Survey" onAction="#startSurveyButtonClicked" />
+            </children>
+            <VBox.margin>
+                <Insets top="50.0" />
+            </VBox.margin>
+        </VBox>
+    </children>
+</AnchorPane>
+
+
+
