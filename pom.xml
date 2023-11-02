@@ -23,7 +23,8 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>21-ea+24</version>
+            <version>22-ea+11</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -46,6 +47,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>22-ea+11</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
