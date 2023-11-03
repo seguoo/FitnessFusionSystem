@@ -17,7 +17,7 @@
             <Image url="@../../../../../../FitnessFusionRegistrationScreen.png" />
          </image>
       </ImageView>
-      <VBox layoutX="165.0" layoutY="51.0" prefHeight="250.0" prefWidth="118.0">
+      <VBox layoutX="27.0" layoutY="51.0" prefHeight="250.0" prefWidth="118.0">
          <children>
             <Label prefHeight="33.0" prefWidth="121.0" text="First Name" textFill="WHITE">
                <VBox.margin>
@@ -61,7 +61,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox layoutX="294.0" layoutY="51.0" prefHeight="250.0" prefWidth="118.0">
+      <VBox layoutX="152.0" layoutY="51.0" prefHeight="250.0" prefWidth="118.0">
          <children>
             <TextField fx:id="fName" prefHeight="26.0" prefWidth="118.0">
                <VBox.margin>
@@ -95,6 +95,53 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="252.0" layoutY="301.0" mnemonicParsing="false" style="-fx-border-color: #00FFFF;" text="Register" />
+      <Button layoutX="262.0" layoutY="307.0" mnemonicParsing="false" style="-fx-border-color: #00FFFF;" text="Register" />
+      <VBox layoutX="294.0" layoutY="102.0" prefHeight="250.0" prefWidth="118.0">
+         <children>
+            <Label prefHeight="33.0" prefWidth="121.0" text="Gender" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="121.0" text="Age" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="30.0" top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="68.0" prefHeight="33.0" prefWidth="121.0" text="Weight" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="30.0" top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="425.0" layoutY="102.0" prefHeight="250.0" prefWidth="118.0">
+         <children>
+            <TextField fx:id="gender" prefHeight="26.0" prefWidth="118.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="age" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="118.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="weight" layoutX="10.0" layoutY="76.0" prefHeight="26.0" prefWidth="118.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
