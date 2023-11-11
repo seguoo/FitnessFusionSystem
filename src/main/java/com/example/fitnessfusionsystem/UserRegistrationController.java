@@ -1,0 +1,164 @@
+package com.example.fitnessfusionsystem;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+
+public class UserRegistrationController {
+    @FXML
+    private Label welcomeText, testFN, testLN, testEM, testPA, testNU;
+    @FXML
+    private TextField fName, lName, email, passW1, newU;
+
+    boolean flag = false;
+
+    public void initialize() {
+        fName.setOnKeyPressed(key -> {
+
+            if (key.getCode() != KeyCode.TAB && flag) {
+                fName.setStyle("-fx-border-color: lightgreen ; -fx-border-width: 4px ;");
+                testFN.setText("");
+
+                flag = false;
+            }
+
+        });
+        fName.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Welcome text is focused");
+            } else {
+                if (fName.getText().matches("[a-zA-Z]{2,25}")) {
+                    fName.setEditable(false);
+                    fName.setBorder(null);
+                } else {
+
+                    fName.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    fName.setVisible(true);
+                    fName.requestFocus();
+                    testFN.setText(fName.getText() + " is not valid first name");
+                    flag = true;
+                }
+
+            }
+        });
+        lName.setOnKeyPressed(key -> {
+
+            if (key.getCode() != KeyCode.TAB && flag) {
+                lName.setStyle("-fx-border-color: lightgreen ; -fx-border-width: 4px ;");
+                testLN.setText("");
+
+                flag = false;
+            }
+
+        });
+        lName.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Welcome text is focused");
+            } else {
+                if (lName.getText().matches("[a-zA-Z]{2,25}")) {
+                    lName.setEditable(false);
+                    lName.setBorder(null);
+                } else {
+
+                    lName.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    lName.setVisible(true);
+                    lName.requestFocus();
+                    testLN.setText(lName.getText() + " is not valid last name");
+                    flag = true;
+                }
+
+            }
+        });
+        email.setOnKeyPressed(key -> {
+
+            if (key.getCode() != KeyCode.TAB && flag) {
+                email.setStyle("-fx-border-color: lightgreen ; -fx-border-width: 4px ;");
+                testEM.setText("");
+
+                flag = false;
+            }
+
+        });
+        email.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Welcome text is focused");
+            } else {
+                if (email.getText().matches("^(.+)@(.+)$*")) {
+                    email.setEditable(false);
+                    email.setBorder(null);
+                } else {
+
+                    email.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    email.setVisible(true);
+                    email.requestFocus();
+                    testEM.setText(email.getText() + " is not valid email");
+                    flag = true;
+                }
+
+            }
+        });
+        passW1.setOnKeyPressed(key -> {
+
+            if (key.getCode() != KeyCode.TAB && flag) {
+                passW1.setStyle("-fx-border-color: lightgreen ; -fx-border-width: 4px ;");
+                testPA.setText("");
+
+                flag = false;
+            }
+
+        });
+        passW1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Welcome text is focused");
+            } else {
+                if (passW1.getText().matches("[a-zA-Z0-9]{8}")) {
+                    passW1.setEditable(false);
+                    passW1.setBorder(null);
+                } else {
+
+                    passW1.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    passW1.setVisible(true);
+                    passW1.requestFocus();
+                    testPA.setText(passW1.getText() + " invalid needs 8 inputs");
+                    flag = true;
+                }
+
+            }
+        });
+        newU.setOnKeyPressed(key -> {
+
+            if (key.getCode() != KeyCode.TAB && flag) {
+                newU.setStyle("-fx-border-color: lightgreen ; -fx-border-width: 4px ;");
+                testNU.setText("");
+
+                flag = false;
+            }
+
+        });
+        newU.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                System.out.println("Welcome text is focused");
+            } else {
+                if (newU.getText().matches("[a-zA-Z0-9]{2,25}")) {
+                    newU.setEditable(false);
+                    newU.setBorder(null);
+                } else {
+
+                    newU.setStyle("-fx-border-color: red ; -fx-border-width: 4px ;");
+                    newU.setVisible(true);
+                    newU.requestFocus();
+                    testNU.setText(newU.getText() + " invalid username");
+                    flag = true;
+                }
+
+            }
+        });
+
+
+        }
+    @FXML
+    protected void onHelloButtonClick () {
+        welcomeText.setText("Welcome to JavaFX Application!");
+    }
+}
