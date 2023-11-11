@@ -1,5 +1,6 @@
 package com.example.fitnessfusionsystem;
 
+
 import java.util.*;
 
 public class WorkoutPlan {
@@ -26,11 +27,7 @@ public class WorkoutPlan {
     public void removeExercises(String day) {
         List<Exercise> exercises = workoutDays.get(day);
         if (exercises != null) {
-            Iterator<Exercise> iterator = exercises.iterator();
-            while (iterator.hasNext()) {
-                Exercise exercise = iterator.next();
-                iterator.remove();
-            }
+            exercises.clear();
         }
     }
 
@@ -40,6 +37,7 @@ public class WorkoutPlan {
 
     public record Exercise(String name, int sets, int repetitions) {
     }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -60,6 +58,7 @@ public class WorkoutPlan {
 
         return stringBuilder.toString();
     }
+
 }
 
 
