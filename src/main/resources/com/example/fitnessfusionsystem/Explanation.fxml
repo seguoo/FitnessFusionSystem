@@ -3,35 +3,47 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="com.example.fitnessfusionsystem.ExplanationController">
+<AnchorPane prefHeight="469.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnessfusionsystem.ExplanationController">
     <children>
-        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+        <VBox alignment="CENTER" layoutY="103.0" prefHeight="251.0" prefWidth="686.0" spacing="20.0">
             <children>
                 <Label text="Welcome to our Exercise Assistant!">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Label>
-                <Label
-                    text="To create a personalized workout plan tailored to your needs, we need some information about your fitness experience, body type, and goals. Please click the button below to start the survey."
-                    wrapText="true">
+                <Label text="To create a personalized workout plan tailored to your needs, we need some information about your fitness experience, body type, and goals. Please click the button below to start the survey." wrapText="true">
                     <font>
-                        <Font size="14.0" />
+                        <Font name="YuGothic Bold" size="17.0" />
                     </font>
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin>
                 </Label>
-                <Button fx:id="startSurveyButton" text="Start Survey" onAction="#startSurveyButtonClicked" />
+                <Button fx:id="startSurveyButton" onAction="#startSurveyButtonClicked" style="-fx-background-color: #00FF62; -fx-border-color: #000000;" text="Start Survey" />
             </children>
             <VBox.margin>
                 <Insets top="50.0" />
             </VBox.margin>
         </VBox>
+      <HBox prefHeight="19.0" prefWidth="691.0" style="-fx-background-color: #FF0000;" />
+      <HBox layoutY="439.0" prefHeight="36.0" prefWidth="691.0" style="-fx-background-color: #0000FF;" />
+      <ImageView fitHeight="121.0" fitWidth="142.0" layoutX="14.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="142.0" layoutX="535.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lightbulb.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
-
-
-

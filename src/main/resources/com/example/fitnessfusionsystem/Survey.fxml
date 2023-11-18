@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.fitnessfusionsystem.SurveyController">
+<AnchorPane prefHeight="405.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnessfusionsystem.SurveyController">
     <children>
-        <ScrollPane fitToWidth="true" fitToHeight="true">
+        <ScrollPane fitToHeight="true" fitToWidth="true">
             <content>
-                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0">
+                <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #BFEFFF;">
                     <children>
-                        <Label text="How long have you been working out?" />
+                        <Label text="How long have you been working out?">
+                     <font>
+                        <Font name="YuGothic Bold" size="18.0" />
+                     </font>
+                  </Label>
                         <ComboBox fx:id="workoutExperienceComboBox">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
@@ -29,8 +33,12 @@
                                 </FXCollections>
                             </items>
                         </ComboBox>
-
-                        <Label text="Are you in a caloric surplus, a caloric deficit, or eating at maintenance calories?" />
+      
+                        <Label text="Are you in a caloric surplus, a caloric deficit, or eating at maintenance calories?">
+                     <font>
+                        <Font name="YuGothic Bold" size="14.0" />
+                     </font>
+                  </Label>
                         <ComboBox fx:id="caloricStatusComboBox">
                             <items>
                                 <FXCollections fx:factory="observableArrayList">
@@ -40,23 +48,67 @@
                                 </FXCollections>
                             </items>
                         </ComboBox>
-
-                        <Label text="Do you suffer from any long-term injuries?" />
+      
+                        <Label text="Do you suffer from any long-term injuries?">
+                     <font>
+                        <Font name="YuGothic Bold" size="18.0" />
+                     </font>
+                  </Label>
                         <CheckBox fx:id="injuriesCheckBox" />
-
-                        <VBox alignment="CENTER" fx:id="injuriesAreasBox" spacing="10.0">
-                            <Label text="If yes, then what areas of the body are you affected?" />
-                            <CheckBox text="Head/Neck" />
-                            <CheckBox text="Shoulders" />
-                            <CheckBox text="Back" />
-                            <CheckBox text="Arms" />
-                            <CheckBox text="Hands/Wrists" />
-                            <CheckBox text="Hips" />
-                            <CheckBox text="Legs" />
-                            <CheckBox text="Feet/Ankles" />
+      
+                        <VBox fx:id="injuriesAreasBox" alignment="CENTER" prefHeight="257.0" prefWidth="586.0" spacing="10.0">
+                            <Label text="If yes, then what areas of the body are you affected?">
+                        <font>
+                           <Font name="YuGothic Bold" size="18.0" />
+                        </font>
+                     </Label>
+                            <CheckBox text="Head/Neck">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Shoulders">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Back">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Arms">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Hands/Wrists">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Hips">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Legs">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
+                            <CheckBox text="Feet/Ankles">
+                        <font>
+                           <Font name="YuGothic Bold" size="14.0" />
+                        </font>
+                     </CheckBox>
                         </VBox>
-
-                        <Button fx:id="confirmButton" text="Confirm Answers" onAction="#confirmButtonClicked" />
+      
+                        <Button fx:id="confirmButton" onAction="#confirmButtonClicked" style="-fx-background-color: #00FF62; -fx-border-color: #000000;" text="Confirm Answers">
+                     <font>
+                        <Font name="YuGothic Bold" size="18.0" />
+                     </font>
+                  </Button>
                     </children>
                     <VBox.margin>
                         <Insets top="50.0" />
@@ -66,6 +118,3 @@
         </ScrollPane>
     </children>
 </AnchorPane>
-
-
-
