@@ -15,22 +15,13 @@ public class FitnessFusion extends Application {
     public ImageView regScreen, logScreen;
 
     private static Scene scene;
-    /*
+
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("explanation"));
         stage.setScene(scene);
         stage.show();
     }
-     */
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FitnessFusion.class.getResource("Survey.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setScene(scene);
-        stage.show();
-    }
-
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
