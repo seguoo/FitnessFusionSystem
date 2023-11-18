@@ -8,22 +8,20 @@ public class Logic {
     public static WorkoutPlan generateWorkoutPlan(String workoutExperience, String caloricStatus, boolean hasInjuries, List<String> affectedAreas) {
         WorkoutPlan workoutPlan = new WorkoutPlan();
 
-        // Logic to determine workout intensity based on user input
+        // Call determineWorkoutIntensity function
         WorkoutIntensity intensity = determineWorkoutIntensity(workoutExperience, caloricStatus, hasInjuries);
 
-        // Add exercises to workout plan based on intensity and affected areas
-        if (intensity == WorkoutIntensity.HIGH_INTENSITY) {
-            addHighIntensityExercises(workoutPlan);
-        } else if (intensity == WorkoutIntensity.LOW_INTENSITY) {
-            addLowIntensityExercises(workoutPlan);
-        } else {
-            addModerateIntensityExercises(workoutPlan);
+        // Add exercises to workout plan based on intensity
+        switch (intensity) {
+            case HIGH_INTENSITY -> addHighIntensityExercises(workoutPlan);
+            case LOW_INTENSITY -> addLowIntensityExercises(workoutPlan);
+            default -> addModerateIntensityExercises(workoutPlan);
         }
 
-        // Add specific exercises based on affected areas if the user has injuries
+        // Add rehab days based on affected areas if the user has injuries
         if (hasInjuries) {
             for (String affectedArea : affectedAreas) {
-                determineAffectedDay(affectedArea); // Determine the affected day for the current injury
+                determineAffectedDay(affectedArea);
                 addInjurySpecificExercises(workoutPlan, affectedArea, affectedDay);
             }
         }
@@ -32,10 +30,10 @@ public class Logic {
     }
 
     private static void determineAffectedDay(String affectedArea) {
-        // Logic to determine the affected day based on the affected area
+        // Determine the affected day based on the affected area
         switch (affectedArea) {
-            case "Back", "Hands/Wrists" -> affectedDay = "Day 2";
-            case "Head/Neck" -> affectedDay = "Day 5";
+            case "Back" -> affectedDay = "Day 2";
+            case "Head/Neck", "Hands/Wrists" -> affectedDay = "Day 5";
             case "Arms" -> affectedDay = "Day 4";
             case "Hips", "Feet/Ankles" -> affectedDay = "Day 3";
             case "Legs" -> affectedDay = "Day 6";
@@ -46,9 +44,14 @@ public class Logic {
 
     private static WorkoutIntensity determineWorkoutIntensity(String workoutExperience, String caloricStatus, boolean hasInjuries) {
         // Intensity is determined based on workout experience, caloric status, and injuries
-        if (workoutExperience.equals("Less than 6 months") && !hasInjuries) {
+        if (workoutExperience.equals("Less than 6 months")  ||
+                workoutExperience.equals("6 months to 1 year")  ||
+                workoutExperience.equals("1 to 3 years") && caloricStatus.equals("Caloric surplus")  ||
+                workoutExperience.equals("1 to 3 years") && caloricStatus.equals("Maintenance calories")  ||
+                workoutExperience.equals("More than 3 years") && caloricStatus.equals("Caloric surplus") ) {
             return WorkoutIntensity.HIGH_INTENSITY;
-        } else if (workoutExperience.equals("More than 3 years") || caloricStatus.equals("Caloric deficit")) {
+        } else if (workoutExperience.equals("More than 3 years") && caloricStatus.equals("Maintenance calories")  ||
+                caloricStatus.equals("Caloric deficit") ) {
             return WorkoutIntensity.MODERATE_INTENSITY;
         } else {
             return WorkoutIntensity.LOW_INTENSITY;

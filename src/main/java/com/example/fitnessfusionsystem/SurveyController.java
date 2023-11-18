@@ -7,11 +7,15 @@ package com.example.fitnessfusionsystem;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class SurveyController {
     @FXML
@@ -37,27 +41,24 @@ public class SurveyController {
 
     @FXML
     protected void confirmButtonClicked(ActionEvent event) {
-        // Handle the button click event, process survey answers
+        // Handle confirm button click, process survey answers
         String workoutExperience = workoutExperienceComboBox.getValue();
         String caloricStatus = caloricStatusComboBox.getValue();
         boolean hasInjuries = injuriesCheckBox.isSelected();
 
         // Get selected injury areas
-        StringBuilder selectedAreas = new StringBuilder();
+        List<String> affectedAreasList = new ArrayList<>();
         if (hasInjuries) {
             for (javafx.scene.Node node : injuriesAreasBox.getChildren()) {
                 if (node instanceof CheckBox checkBox) {
                     if (checkBox.isSelected()) {
-                        selectedAreas.append(checkBox.getText()).append(", ");
+                        affectedAreasList.add(checkBox.getText());
                     }
                 }
             }
         }
-        // Remove the trailing comma and space
-        String affectedAreas = selectedAreas.toString().replaceAll(", $", "");
-
-        // Call the generateWorkoutPlan method from the Logic class
-        WorkoutPlan workoutPlan = Logic.generateWorkoutPlan(workoutExperience, caloricStatus, hasInjuries, Collections.singletonList(affectedAreas));
+        // Call the generateWorkoutPlan method from the Logic class with the list of affected areas
+        WorkoutPlan workoutPlan = Logic.generateWorkoutPlan(workoutExperience, caloricStatus, hasInjuries, affectedAreasList);
 
         // Print the generated workout plan
         System.out.println("Generated Workout Plan:");
