@@ -4,6 +4,11 @@
  */
 package com.example.fitnessfusionsystem;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.cloud.FirestoreClient;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,11 +18,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class SurveyController {
+
     @FXML
     private ComboBox<String> workoutExperienceComboBox;
     @FXML
@@ -28,9 +32,7 @@ public class SurveyController {
     private VBox injuriesAreasBox;
     @FXML
     private Button confirmButton;
-
     private final Logic logic = new Logic();
-
 
     @FXML
     protected void initialize() {
@@ -57,12 +59,20 @@ public class SurveyController {
                 }
             }
         }
-        // Call the generateWorkoutPlan method from the Logic class with the list of affected areas
+
+        // Generate workout plan
         WorkoutPlan workoutPlan = Logic.generateWorkoutPlan(workoutExperience, caloricStatus, hasInjuries, affectedAreasList);
 
-        // Print the generated workout plan
-        System.out.println("Generated Workout Plan:");
-        System.out.println(workoutPlan);
-    }
+        // Convert WorkoutPlan object into a Map<String, Object>
+        Map<String, Object> workoutPlanData = new HashMap<>();
+        workoutPlanData.put("Plan", workoutPlan.toString()); // Convert workout plan to string and save it
 
+        // Store workout plan in Firestore
+        DocumentReference docRef = FitnessFusion.fstore.collection("WorkoutPlans").document(UUID.randomUUID().toString());
+        // Asynchronously write data
+        ApiFuture<WriteResult> result = docRef.set(workoutPlanData);
+
+        System.out.println("Successfully sent workout plan to database!");
+
+    }
 }
