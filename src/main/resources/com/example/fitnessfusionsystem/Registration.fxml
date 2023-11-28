@@ -225,5 +225,7 @@
             </Label>
          </children>
       </VBox>
+      <Label layoutX="565.0" layoutY="395.0" text="Already Registered?" textFill="YELLOW" />
+      <Button layoutX="690.0" layoutY="390.0" mnemonicParsing="false" onAction="#switchBackStage" text="Login" />
    </children>
 </AnchorPane>

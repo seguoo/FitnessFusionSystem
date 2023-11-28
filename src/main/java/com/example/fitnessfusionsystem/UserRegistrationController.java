@@ -7,6 +7,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 
+import java.io.IOException;
+
 public class UserRegistrationController {
     @FXML
     private Label welcomeText, testFN, testLN, testEM, testPA, testNU, testA, testW;
@@ -232,4 +234,10 @@ public class UserRegistrationController {
             gender.setText(rButtonFemale.getText());
         }
     }
+
+    @FXML
+    private void switchBackStage() throws IOException {
+        FitnessFusion.setRoot("Login.fxml");
+    }
+
 }
