@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnessfusionsystem.UserLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnessfusionsystem.UserLoginController">
    <children>
-      <ImageView fx:id="logScreen" fitHeight="465.0" fitWidth="671.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logScreen" fitHeight="523.0" fitWidth="773.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FitnessFusionLoginScreen.png" />
          </image>

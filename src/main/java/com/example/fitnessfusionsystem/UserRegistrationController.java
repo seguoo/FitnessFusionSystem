@@ -1,13 +1,19 @@
 package com.example.fitnessfusionsystem;
 
+import com.google.cloud.firestore.WriteResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.api.core.ApiFuture;
+import java.util.Map;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class UserRegistrationController {
     @FXML
@@ -16,6 +22,10 @@ public class UserRegistrationController {
     private TextField fName, lName, email, passW1, newU, gender, age, weight;
     @FXML
     private RadioButton rButtonMale, rButtonFemale;
+    @FXML
+    private void addRecord(ActionEvent event) {
+        addData();
+    }
 
     boolean flag = false;
 
@@ -239,5 +249,27 @@ public class UserRegistrationController {
     private void switchBackStage() throws IOException {
         FitnessFusion.setRoot("Login.fxml");
     }
+
+
+    public void addData() {
+
+        DocumentReference docRef = FitnessFusion.fstore.collection("UserRecord").document(UUID.randomUUID().toString());
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("FirstName", fName.getText());
+        data.put("LastName", lName.getText());
+        data.put("Email", email.getText());
+        data.put("Password", passW1.getText());
+        data.put("NewUsername", newU.getText());
+        data.put("Gender", gender.getText());
+        data.put("Age", age.getText());
+        data.put("Weight", Double.parseDouble(weight.getText()));
+
+
+        ApiFuture<WriteResult> result = docRef.set(data);
+
+        System.out.println("Successfully sent new user information to database!");
+    }
+
 
 }

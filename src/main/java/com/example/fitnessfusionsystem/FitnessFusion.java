@@ -32,13 +32,12 @@ public class FitnessFusion extends Application {
     public void start(Stage primaryStage) throws IOException {
         fstore = contextFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
-        //FXMLLoader fxmlLoader = new FXMLLoader(FitnessFusion.class.getResource("login.fxml"));
+
 
         scene = new Scene(loadFXML("Login.fxml"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -48,7 +47,6 @@ public class FitnessFusion extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FitnessFusion.class.getResource(fxml ));
         return fxmlLoader.load();
     }
-
 
     public static void main(String[] args) {
         launch();
