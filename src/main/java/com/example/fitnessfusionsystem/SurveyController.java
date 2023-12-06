@@ -12,12 +12,17 @@ import com.google.firebase.cloud.FirestoreClient;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 public class SurveyController {
@@ -33,6 +38,7 @@ public class SurveyController {
     @FXML
     private Button confirmButton;
     private final Logic logic = new Logic();
+
 
     @FXML
     protected void initialize() {
@@ -74,5 +80,23 @@ public class SurveyController {
 
         System.out.println("Successfully sent workout plan to database!");
 
+        // Load the workout plan display screen
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("WorkoutPlanDisplay.fxml"));
+
+            // Provide the workout plan through the constructor
+            loader.setController(new WorkoutPlanDisplayController(workoutPlan));
+
+            Parent workoutPlanDisplayParent = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Workout Plan Display");
+            stage.setScene(new Scene(workoutPlanDisplayParent));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
 }
