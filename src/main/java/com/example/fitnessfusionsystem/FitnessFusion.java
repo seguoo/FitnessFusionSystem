@@ -13,41 +13,27 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class FitnessFusion extends Application {
-    @FXML
-    public ImageView regScreen, logScreen;
 
-    private static Scene scene;
     public static Firestore fstore;
     public static FirebaseAuth fauth;
-    public final FirestoreContext contextFirebase = new FirestoreContext();
-    /*
+    public static Scene scene;
+    private final FirestoreContext contxtFirebase = new FirestoreContext();
+
     @Override
     public void start(Stage stage) throws IOException {
+        fstore = contxtFirebase.firebase();
+        fauth = FirebaseAuth.getInstance();
         scene = new Scene(loadFXML("explanation"));
         stage.setScene(scene);
         stage.show();
     }
-     */
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        fstore = contextFirebase.firebase();
-        fauth = FirebaseAuth.getInstance();
-
-
-        scene = new Scene(loadFXML("Login.fxml"));
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(FitnessFusion.class.getResource(fxml ));
+        FXMLLoader fxmlLoader = new FXMLLoader(FitnessFusion.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
     public static void main(String[] args) {
         launch();
     }

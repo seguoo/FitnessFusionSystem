@@ -41,7 +41,6 @@ public class Logic {
         }
     }
 
-
     private static WorkoutIntensity determineWorkoutIntensity(String workoutExperience, String caloricStatus, boolean hasInjuries) {
         // Intensity is determined based on workout experience, caloric status, and injuries
         if (workoutExperience.equals("Less than 6 months")  ||

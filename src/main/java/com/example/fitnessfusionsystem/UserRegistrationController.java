@@ -22,10 +22,19 @@ public class UserRegistrationController {
     private TextField fName, lName, email, passW1, newU, gender, age, weight;
     @FXML
     private RadioButton rButtonMale, rButtonFemale;
+
+
+
     @FXML
-    private void addRecord(ActionEvent event) {
+    private void addRecord(ActionEvent event) throws IOException {
+
+        // Add the user data to the database
         addData();
+
+        // Set the root
+        FitnessFusion.setRoot("explanation");
     }
+
 
     boolean flag = false;
 
@@ -270,6 +279,4 @@ public class UserRegistrationController {
 
         System.out.println("Successfully sent new user information to database!");
     }
-
-
 }

@@ -45,8 +45,19 @@ public class WorkoutPlan {
         for (Map.Entry<String, List<Exercise>> entry : workoutDays.entrySet()) {
             String day = entry.getKey();
             List<Exercise> exercises = entry.getValue();
+            String dayType;
 
-            stringBuilder.append("Day: ").append(day).append("\n");
+            if (day.contains("Day 1") || day.contains("Day 4")) {
+                dayType = "Push";
+            } else if (day.contains("Day 2") || day.contains("Day 5")) {
+                dayType = "Pull";
+            } else if (day.contains("Day 3") || day.contains("Day 6")) {
+                dayType = "Legs";
+            } else {
+                dayType = "Rest";
+            }
+
+            stringBuilder.append(day).append(" ").append(dayType).append("\n");
             for (Exercise exercise : exercises) {
                 stringBuilder.append("Exercise: ").append(exercise.name())
                         .append(", Sets: ").append(exercise.sets())
@@ -58,6 +69,7 @@ public class WorkoutPlan {
 
         return stringBuilder.toString();
     }
+
 
 }
 
