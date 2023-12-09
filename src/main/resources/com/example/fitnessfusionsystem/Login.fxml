@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnessfusionsystem.UserLoginController">
    <children>
       <ImageView fx:id="logScreen" fitHeight="523.0" fitWidth="773.0" pickOnBounds="true" preserveRatio="true">
@@ -38,11 +39,11 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="passW" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="118.0">
+            <PasswordField fx:id="passW" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="118.0">
                <VBox.margin>
                   <Insets top="35.0" />
                </VBox.margin>
-            </TextField>
+            </PasswordField>
          </children>
       </VBox>
       <Label layoutX="274.0" layoutY="105.0" text="Fitness Fusion!">
@@ -50,8 +51,8 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="262.0" layoutY="305.0" mnemonicParsing="false" text="Login" />
+      <Button fx:id="loginButton" layoutX="262.0" layoutY="305.0" onAction="#handleLogin" text="Login" />
       <Label layoutX="404.0" layoutY="316.0" text="New User? " textFill="YELLOW" />
-      <Button fx:id="registerRoot" layoutX="475.0" layoutY="311.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Register " />
+      <Button fx:id="registerButton" layoutX="475.0" layoutY="311.0" onAction="#moveToRegistration" text="Register" />
    </children>
 </AnchorPane>

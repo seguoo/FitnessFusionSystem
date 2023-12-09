@@ -23,7 +23,7 @@ public class FitnessFusion extends Application {
     public void start(Stage stage) throws IOException {
         fstore = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
-        scene = new Scene(loadFXML("explanation"));
+        scene = new Scene(loadFXML("login"));
         stage.setScene(scene);
         stage.show();
     }
