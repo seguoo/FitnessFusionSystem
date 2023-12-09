@@ -32,7 +32,7 @@ public class UserRegistrationController {
         addData();
 
         // Set the root
-        FitnessFusion.setRoot("explanation");
+        FitnessFusion.setRoot("login");
     }
 
 
@@ -256,7 +256,7 @@ public class UserRegistrationController {
 
     @FXML
     private void switchBackStage() throws IOException {
-        FitnessFusion.setRoot("Login.fxml");
+        FitnessFusion.setRoot("Login");
     }
 
 
